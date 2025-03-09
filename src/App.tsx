@@ -5,13 +5,39 @@ import { Button } from './components'
 function App() {
   const [count, setCount] = useState(0)
 
+
   const countMore = () => {
+    //ejemplo de batching
+
     setCount((count) => count + 1)
+    setCount((count) => count + 1)
+    setCount((count) => count + 1)
+    setCount((count) => count + 1)
+    setCount((count) => count + 1)
+    setCount((count) => count + 1)
+    setCount((count) => count + 1)
+    setCount((count) => count + 1)
+    setCount((count) => count + 1)
+    setCount((count) => count + 1)
+    setCount((count) => count + 1)
+
+    // setCount(count + 1)
+    // setCount(count + 1)
+    // setCount(count + 1)
+    // setCount(count + 1)
+    // setCount(count + 1)
+    // setCount(count + 1)
+    // setCount(count + 1)
+    // setCount(count + 1)
+    // setCount(count + 1)
+    // setCount(count + 1)
+    // setCount(count + 1)
+
   }
 
   return (
     <>
-      <Button label={`Count is ${count}`} parentMethod={countMore}/>
+      <Button label={`Count is ${count}`} parentMethod={countMore} />
     </>
   )
 }
