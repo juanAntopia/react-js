@@ -1,20 +1,20 @@
-import { useState, useEffect, useCallback } from 'react'
+// import { useState, useEffect, useCallback } from 'react'
 import './App.css'
-// import { Button } from './components'
+import { useFetch } from './hooks';
+
+const url = 'https://jsonplaceholder.typicode.com/todos/1';
+
+// User ejemplo
+// const userUrl = 'https://jsonplaceholder.typicode.com/users/1';
+
+interface Data {
+  userId: number;
+  id: number;
+  title: string;
+  completed: boolean;
+}
 
 function App() {
-
-  const [data, setData] = useState([])
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState("")
-
-  const consoleLoader = useCallback(
-    (loadingValue: boolean) => {
-      setLoading(loadingValue)
-      console.info(loading)
-    },
-    [loading]
-  )
 
   //useEffect comunicarnos con un endpoint  - entidad externa del componente
   //maneja el ciclo de vida de un componente
@@ -22,53 +22,36 @@ function App() {
   //parámetros de entrada
   //context
   //se puede usar las veces que se requieran
-  const fetchData = useCallback(
-    async () => {
-      consoleLoader(true)
-      try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/todos/1')
-
-        if (!response.ok) {
-          throw new Error("Error al obtener los datos!")
-        }
-
-        const responseJson = await response.json()
-        setData(responseJson)
-      }
-      catch (err) {
-        setError(err as string)
-      }
-      finally {
-        consoleLoader(false)
-      }
-    }, 
-    [consoleLoader]
-  )
 
   //sync con entidades externas
-  useEffect(() => {
-    //¿cuándo sucede?
-    // 1 - cuando el componente se monta
-    // 2 - cada que se modifica cualquiera de los valores del state
+  // useEffect(() => {
+  //   //¿cuándo sucede?
+  //   // 1 - cuando el componente se monta
+  //   // 2 - cada que se modifica cualquiera de los valores del state
 
-    fetchData()
+  //   fetchData()
 
-    // return () => {
-    //   //maneja el estado de la memoria - se ejecuta cuando se destruye el componente o cuando se desmonta
-    // }
-  }, [fetchData])
+  //   // return () => {
+  //   //   //maneja el estado de la memoria - se ejecuta cuando se destruye el componente o cuando se desmonta
+  //   // }
+  // }, [fetchData])
+
+  const { data, error, loading } = useFetch<Data>(url)
+
+  //de user ejemplo
+  // const { data: dataUser, error: errorUser, loading: loadingUser } = useFetch<{name: string}>(url)
+  // dataUser?.name
 
   if (loading) {
     return <div>Cargando ....</div>
   }
 
   if (error) {
-    return <div>Upps hay un error!</div>
+    return <div>Upps hay un error!{error.message}</div>
   }
 
   return (
     <>
-      {/* <Button label={`Count is ${count}`} parentMethod={countMore} /> */}
       <div>{JSON.stringify(data)}</div>
     </>
   )
