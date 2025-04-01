@@ -1,5 +1,6 @@
 import './App.css'
 import {Button, ColorRed, AppForm} from './components'
+import { GlobalProvider } from './context/global.provider'
 
 function App() {
   const handleClick = () => {
@@ -15,13 +16,13 @@ function App() {
   }
 
   return (
-    <>
+    <GlobalProvider>
       <ColorRed><Button parentMethod={dimeHola}>Juan</Button></ColorRed>
       <Button parentMethod={handleClick}>My Button normal</Button>
       <AppForm>
         <Button parentMethod={submit}>Submit</Button>
       </AppForm>
-    </>
+    </GlobalProvider>
   )
 }
 
