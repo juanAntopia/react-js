@@ -1,3 +1,6 @@
 export * from './Button/Button.tsx'
 export * from './ColorRed/ColorRed.tsx'
 export * from './AppForm/AppForm.tsx'
+export * from './UseRef/BookReader.tsx'
+export * from './UseMemo/ShoppingCart.tsx'
+export * from './UseCallback/PhoneBook.tsx'

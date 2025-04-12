@@ -1,28 +1,18 @@
 import './App.css'
-import {Button, ColorRed, AppForm} from './components'
-import { GlobalProvider } from './context/global.provider'
+// import { BookReader } from './components'
+// import { FocusInput } from './components/UseRef'
+// import { ShoppingCart } from './components'
+import { PhoneBook } from './components'
 
 function App() {
-  const handleClick = () => {
-    console.log('hola')
-  }
-
-  const dimeHola = () => {
-    alert('hola')
-  }
-
-  const submit = () => {
-    console.log('submit')
-  }
 
   return (
-    <GlobalProvider>
-      <ColorRed><Button parentMethod={dimeHola}>Juan</Button></ColorRed>
-      <Button parentMethod={handleClick}>My Button normal</Button>
-      <AppForm>
-        <Button parentMethod={submit}>Submit</Button>
-      </AppForm>
-    </GlobalProvider>
+    <div>
+      {/* <BookReader></BookReader> */}
+      {/* <FocusInput></FocusInput> */}
+      {/* <ShoppingCart /> */}
+      <PhoneBook />
+    </div>
   )
 }
 
