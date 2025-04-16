@@ -1,6 +1,6 @@
 import './App.css'
 import { Modal } from './components'
-import { useModalContext } from './components/Modal/Context/ModalContext'
+import { useModalContext } from './components/Modal/Context'
 // import { BookReader } from './components'
 // import { FocusInput } from './components/UseRef'
 // import { ShoppingCart } from './components'
