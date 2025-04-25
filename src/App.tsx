@@ -1,6 +1,9 @@
 import './App.css'
-import { Modal } from './components'
-import { useModalContext } from './components/Modal/Context'
+import { PromiseError } from './components/ErrorBoundaryExamples'
+// import { EffectExample } from './components/ErrorBoundaryExamples'
+// import UndefinedExample from './components/ErrorBoundaryExamples/UndefinedExample'
+// import { Modal } from './components'
+// import { useModalContext } from './components/Modal/Context'
 // import { BookReader } from './components'
 // import { FocusInput } from './components/UseRef'
 // import { ShoppingCart } from './components'
@@ -8,11 +11,11 @@ import { useModalContext } from './components/Modal/Context'
 
 function App() {
 
-  const { setState } = useModalContext()
+  // const { setState } = useModalContext()
 
-  const openModal = () => {
-    setState(true)
-  }
+  // const openModal = () => {
+  //   setState(true)
+  // }
 
   return (
     <div>
@@ -20,7 +23,7 @@ function App() {
       {/* <FocusInput></FocusInput> */}
       {/* <ShoppingCart /> */}
       {/* <PhoneBook /> */}
-      <Modal>
+      {/* <Modal>
         <div>
           Hola Juan
         </div>
@@ -28,7 +31,10 @@ function App() {
 
       <button onClick={openModal}>
         Abrete Sésamo
-      </button>
+      </button> */}
+
+      <PromiseError />
+
     </div>
   )
 }
